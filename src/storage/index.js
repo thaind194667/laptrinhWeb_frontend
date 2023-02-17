@@ -7,7 +7,7 @@ let employeeID = "2"
 let type ="none"
 let fullName = "none";
 
-let badwords = ['cứt', 'đít', 'địt', 'lồn', 'chim', 'cu', 'cặc']
+let badwords = ['cut', 'dit', 'lon', 'chim', 'cu', 'cac', 'dmm', 'ngu']
 
 let inTime = {h: 0, m: 0, s: 0}, outTime = {h: 0, m: 0, s: 0};
 
@@ -35,7 +35,7 @@ function setOut (h, m) {
 }
 
 function getCurrentTime() {
-    return new Date(2023, 2, 14, 7, 59, 13);
+    return new Date(2023, 3, 20, 7, 58, 13);
 }
 
 function formatDate() {

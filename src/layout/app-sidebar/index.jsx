@@ -66,15 +66,15 @@ const Sidebar = function Sidebar() {
 // };
   useEffect(
     () => {
-      if(!localStorage.getItem("inTime")) getInTimeToday();
+      getInTimeToday();
       const intervalId = setInterval(() => {
         let now = getCurrentTime();
         let hour = now.getHours();
         let minute = now.getMinutes()
         setTime({   h: hour,
                     m: minute    });
-        if ((hour === 17 && isIn === true) || (hour=== 22 && isIn === true)) outClick();
-        // if(hour === 0) dayOff = checkDayoff();
+        // if ((hour === 17 && isIn === true) || (hour=== 22 && isIn === true)) outClick();
+        // if(hour === 0) localStorage.removeItem('inTime');
       }, 30000);
       return () => {
         clearInterval(intervalId)
@@ -227,7 +227,7 @@ const Sidebar = function Sidebar() {
       return false;
     }
     let check = checkReason();
-    if(check > 0) {
+    if(check) {
       alert("Có vẻ bạn đã sử dụng 1 số từ không phù hợp, hãy kiểm tra lại lí do!!!")
       // document.getElementById("earlyCheck").hidden = false;
       return false;
@@ -256,7 +256,7 @@ const Sidebar = function Sidebar() {
       return false;
     }
 
-    if( (hour >= 8 && hour < 17) ) {
+    if( (hour >= 8) ) {
       if(hour > 12) {
         alert("Đã quá giờ làm hôm nay, bạn đã bị tính nghỉ không lương");
         return false;
@@ -326,7 +326,7 @@ const Sidebar = function Sidebar() {
     let minute = now.getMinutes();
     let second = now.getSeconds();
 
-    if(workType === "official" && hour < 17) { /// create, popup reason
+    if(hour < 17) { /// create, popup reason
       alert("Chưa đến giờ check-out 17:00, không biết bạn có lí do gì xin về sớm không nhỉ?");
       document.getElementById("earlyCheck").hidden = false;
       return;
@@ -414,7 +414,7 @@ const Sidebar = function Sidebar() {
               fontWeight: "500",
               textAlign: "center",
             }}
-          > {getCurrentWorkTime()}
+          >00:00
           </h1>
         </div>
         <div

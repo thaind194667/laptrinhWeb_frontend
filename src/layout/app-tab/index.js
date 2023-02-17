@@ -69,7 +69,6 @@ export default function AppTab({ tabName, childName, isAdmin = false }) {
                 <li
                   key={tab.text}
                   className="tabChild isMobileTab"
-                  style={{ paddingRight: "10px" }}
                 >
                   <a
                     href={`${tab.url}`}

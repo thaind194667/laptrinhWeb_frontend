@@ -153,7 +153,7 @@ function Login() {
                 Register
               </button>
               <div className={styles.signup_link}>
-                Not a member? <a href="/login">Sign in</a>
+                Already has an account? <a href="/login">Sign in</a>
               </div>
             </form>
           </div>
